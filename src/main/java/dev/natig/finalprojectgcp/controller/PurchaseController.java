@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
@@ -22,13 +23,10 @@ public class PurchaseController {
     private final PurchaseMapper mapper;
 
     @GetMapping("/purchases")
-    public List<PurchaseDto> getPurchases() {
-        List<PurchaseDto> list = new ArrayList<>();
-        for (Purchase purchase : purchaseRepository.findAll()) {
-            PurchaseDto purchaseDto = mapper.toDto(purchase);
-            list.add(purchaseDto);
-        }
-        return list;
+    public List<PurchaseDto> getPosts() {
+        return purchaseRepository.findAll().stream()
+                .map(mapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/purchases/{id}")
