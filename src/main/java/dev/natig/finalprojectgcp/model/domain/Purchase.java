@@ -1,16 +1,23 @@
 package dev.natig.finalprojectgcp.model.domain;
 
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "purchases")
-public class Puchase {
+public class Purchase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +33,9 @@ public class Puchase {
     @Column(name = "full_text")
     private String fullText;
 
-    @Column(name = "saler")
-    private String saler;
+    @Column(name = "seller")
+    private String seller;
 
-    @Column(name = "")
+    @Column(name = "temp")
+    private String temp;
 }

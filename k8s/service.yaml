@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - service.kubernetes.io/load-balancer-cleanup
   labels:
-    app: gcp-project
+    app: finalprojectgcp
 spec:
   clusterIP: 10.64.3.149
   clusterIPs:
@@ -18,7 +18,7 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: gcp-project
+    app: finalprojectgcp
   sessionAffinity: None
   type: LoadBalancer
 status:

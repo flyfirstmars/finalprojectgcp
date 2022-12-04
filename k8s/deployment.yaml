@@ -5,7 +5,7 @@ metadata:
     deployment.kubernetes.io/revision: "1"
   generation: 1
   labels:
-    app: gcp-project
+    app: finalprojectgcp
   name: nginx-1
   namespace: default
 spec:
@@ -14,7 +14,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: gcp-project
+      app: finalprojectgcp
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -24,11 +24,11 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: gcp-project
+        app: finalprojectgcp
     spec:
       serviceAccountName: sql-service-account
       containers:
-      - name: gcp-project-sha256-1
+      - name: finalprojectgcp-sha256-1
         image: INIT_IMAGE_NAME
         imagePullPolicy: Always
         env:
@@ -63,7 +63,7 @@ spec:
 
           # Replace DB_PORT with the port the proxy should listen on
           # Defaults: MySQL: 3306, Postgres: 5432, SQLServer: 1433
-          - "-instances=gcp-project-322518:us-central1:postgre-instance=tcp:5432"
+          - "-instances=finalprojectgcp:us-central1:postgre-instance=tcp:5432"
         securityContext:
           # The default Cloud SQL proxy image runs as the
           # "nonroot" user and group (uid: 65532) by default.

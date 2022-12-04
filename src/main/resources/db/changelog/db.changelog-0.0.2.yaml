@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
       id: addColumn-example
-      author: alex
+      seller: joe
       changes:
         - addColumn:
-            tableName: posts
+            tableName: purchases
             columns:
               - column:
                   name: temp

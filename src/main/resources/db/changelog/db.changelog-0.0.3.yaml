@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: delete_temp_column
-      author: alex
+      seller: joe
       changes:
         - dropColumn:
             columnName: temp
@@ -9,4 +9,4 @@ databaseChangeLog:
               - column:
                   name: temp
             schemaName: public
-            tableName: posts
+            tableName: purchases

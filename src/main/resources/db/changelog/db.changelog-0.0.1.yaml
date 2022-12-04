@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
       id: modify_id_datatype
-      author: alex
+      seller: joe
       changes:
         - modifyDataType:
             columnName: id
             newDataType: SERIAL
             schemaName: public
-            tableName: posts
+            tableName: purchases
