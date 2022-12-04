@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: gcp-project
+spec:
+  clusterIP: 10.64.3.149
+  clusterIPs:
+  - 10.64.3.149
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32412
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: gcp-project
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.123.209.167
